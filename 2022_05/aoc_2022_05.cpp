@@ -124,7 +124,7 @@ auto part_two(const std::vector<std::string>& lines) -> void {
         crane.push_back(c);
       }
 
-      // Crane lowers down the boxes in the preserved order they were picked up.
+      // Crane lowers down the crates in the preserved order they were picked up.
       for (int i = crane.size() - 1; i >= 0; --i)
         stacks[move.to_stack].push(crane[i]);
     }
