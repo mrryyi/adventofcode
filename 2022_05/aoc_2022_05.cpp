@@ -75,11 +75,9 @@ auto parse_moves(const std::vector<std::string>& lines) -> std::vector<move> {
   std::vector<move> moves;
   for (auto const& line : lines) {
     if (line.find("move") != std::string::npos) {
-      int amount;
-      int from_stack;
-      int to_stack;
-      sscanf(line.c_str(), "move %d from %d to %d", &amount, &from_stack, &to_stack);
-      moves.push_back({amount, from_stack, to_stack});
+      move m;
+      sscanf(line.c_str(), "move %d from %d to %d", &m.amount, &m.from_stack, &m.to_stack);
+      moves.push_back(m);
     }
   }
   return moves;
