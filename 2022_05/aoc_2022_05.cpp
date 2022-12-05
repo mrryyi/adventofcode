@@ -50,9 +50,9 @@ auto parse_stack_descriptors(const std::vector<std::string>& lines) -> std::map<
     // If we find a [ anywhere in the line then we are on a stack descriptor line
     if (lines[line_i].find('[') != std::string::npos) {
       int stack_i = 1;
-      // Let char_i start at 1 because we know 0th char is '['
-      for (int char_i = 1; char_i < lines[line_i].size(); char_i += STACK_DESCRIPTOR_LENGTH) {
-        crate c = lines[line_i][char_i];
+      // Let crate_i start at 1 because we know 0th char is '['
+      for (int crate_i = 1; crate_i < lines[line_i].size(); crate_i += STACK_DESCRIPTOR_LENGTH) {
+        crate c = lines[line_i][crate_i];
 
         // cause it could be a space.
         if (c >= 'A' && c <= 'Z')
@@ -89,7 +89,7 @@ auto part_one(const std::vector<std::string>& lines) -> void {
   
   auto stacks = parse_stack_descriptors(lines);
   auto moves = parse_moves(lines);
-  // Perform moves
+  
   for (auto const& move : moves) {
     for (int i = 0; i < move.amount; ++i) {
       crate c = stacks[move.from_stack].top();
@@ -98,7 +98,6 @@ auto part_one(const std::vector<std::string>& lines) -> void {
     }
   }
 
-  // Print top of each stack
   for (auto const& [stack_i, stack] : stacks)
     std::cout << stack.top();
   std::cout << std::endl;
@@ -108,20 +107,19 @@ auto part_two(const std::vector<std::string>& lines) -> void {
 
   auto stacks = parse_stack_descriptors(lines);
   auto moves = parse_moves(lines);
-  // Perform moves
+  
   for (auto const& move : moves) {
-
     // Only one, no need for any vector theatrics.
     if (move.amount == 1) {
-      char c = stacks[move.from_stack].top();
+      crate c = stacks[move.from_stack].top();
       stacks[move.from_stack].pop();
       stacks[move.to_stack].push(c);
     }
     else {
       // Store in temp in regular popping order
-      std::vector<char> temp;
+      std::vector<crate> temp;
       for (int i = 0; i < move.amount; ++i) {
-        char c = stacks[move.from_stack].top();
+        crate c = stacks[move.from_stack].top();
         stacks[move.from_stack].pop();
         temp.push_back(c);
       }
@@ -132,7 +130,6 @@ auto part_two(const std::vector<std::string>& lines) -> void {
     }
   }
   
-  // Print top of each stack
   for (auto const& [stack_i, stack] : stacks)
     std::cout << stack.top();
   std::cout << std::endl;
