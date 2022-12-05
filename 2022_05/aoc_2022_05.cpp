@@ -116,17 +116,17 @@ auto part_two(const std::vector<std::string>& lines) -> void {
       stacks[move.to_stack].push(c);
     }
     else {
-      // Store in temp in regular popping order
-      std::vector<crate> temp;
+      // Crane picks up crates from the stack in the order they are on the stack.
+      std::vector<crate> crane;
       for (int i = 0; i < move.amount; ++i) {
         crate c = stacks[move.from_stack].top();
         stacks[move.from_stack].pop();
-        temp.push_back(c);
+        crane.push_back(c);
       }
 
-      // Push in reverse order to preserve the order of the partial stack we move.
-      for (int i = temp.size() - 1; i >= 0; --i)
-        stacks[move.to_stack].push(temp[i]);
+      // Crane lowers down the boxes in the preserved order they were picked up.
+      for (int i = crane.size() - 1; i >= 0; --i)
+        stacks[move.to_stack].push(crane[i]);
     }
   }
   
