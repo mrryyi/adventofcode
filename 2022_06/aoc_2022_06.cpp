@@ -28,8 +28,6 @@ auto all_deque_chars_different(const std::deque<char>& queue) -> bool {
 }
 
 auto part_one(const std::vector<std::string>& lines) -> void {
-
-
   for (auto line : lines) {
     std::deque<char> queue;
     int char_index = 0;  
