@@ -174,7 +174,7 @@ auto part_two(const std::vector<std::string>& lines) -> void {
   std::cout << "Part two: Delete directory: " << name << " with size: " << min << std::endl;
 }
 
-auto main() -> main {
+auto main() -> int {
   auto lines = get_lines();
   part_one(lines);
   part_two(lines);
