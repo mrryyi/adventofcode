@@ -131,7 +131,7 @@ auto part_one(const std::vector<std::string>& lines) -> void {
   
   std::size_t total_size = 0;
   add_sizes_of_directories_with_less_than_100000_size(root, total_size);
-  std::cout << "Part two: Total size of directories with less than 100000 size: " << total_size << std::endl;
+  std::cout << "Part one: Total size of directories with less than 100000 size: " << total_size << std::endl;
 }
 
 auto get_directories (const directory& dir, std::vector<directory>& directories) -> void {
@@ -174,7 +174,7 @@ auto part_two(const std::vector<std::string>& lines) -> void {
   std::cout << "Part two: Delete directory: " << name << " with size: " << min << std::endl;
 }
 
-int main() {
+auto main() -> int {
   auto lines = get_lines();
   part_one(lines);
   part_two(lines);
