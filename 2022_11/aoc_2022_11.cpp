@@ -84,7 +84,7 @@ auto get_monkeys(const std::vector<std::string>& lines) -> std::vector<Monkey> {
 // replacement to cout that only prints if should_log is true
 
 
-auto both_parts(const std::vector<std::string>& lines, int rounds = 20, int divide_factor = 3) -> long long {
+auto both_parts(const std::vector<std::string>& lines, const int rounds = 20, const int divide_factor = 3) -> long long {
   
   auto monkeys = get_monkeys(lines);
 
