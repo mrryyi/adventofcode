@@ -1,0 +1,14 @@
+d02::part1_firsttry()
+Time taken: 31ms
+Time taken: 31926us
+Time taken: 31926000ns
+
+d02::part1_op_01()
+Time taken: 19ms
+Time taken: 19032us
+Time taken: 19032100ns
+
+d02::part2_firsttry()
+Time taken: 399ms
+Time taken: 399837us
+Time taken: 399837500ns

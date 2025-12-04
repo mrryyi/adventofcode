@@ -1,0 +1,36 @@
+d01::part1_firsttry()
+Time taken: 1224ms
+Time taken: 1224776us
+Time taken: 1224776700ns
+
+d01::part1_op_01()
+Time taken: 2ms
+Time taken: 2328us
+Time taken: 2328800ns
+
+d01::part1_op_02()
+Time taken: 1ms
+Time taken: 1791us
+Time taken: 1791300ns
+
+d01::part1_op_03()
+Time taken: 1ms
+Time taken: 1780us
+Time taken: 1780200ns
+
+
+
+d01::part2_firsttry()
+Time taken: 1395ms
+Time taken: 1395349us
+Time taken: 1395349600ns
+
+d01::part2_op_01()
+Time taken: 2ms
+Time taken: 2565us
+Time taken: 2565000ns
+
+d01::part2_op_02()
+Time taken: 2ms
+Time taken: 2401us
+Time taken: 2401200ns
