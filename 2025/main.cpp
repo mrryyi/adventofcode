@@ -5,7 +5,6 @@
 int main(int argc, char** args) {
     util::Timer timer;
     std::string answer;
-    
     timer.start();
     answer = d02::part2_first_try();
     
