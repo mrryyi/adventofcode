@@ -168,16 +168,7 @@ namespace d02 {
         }
     }
 
-    // I can't be arsed to optimize this.
-    // I just KNOW it can complete the task so much faster, 
-    // I KNOW it checks numbers that unnecessary.
-    // I KNOW there are ways to make it better.
-    // Thoughts:
-    // If we know the magnitude of all numbers in a range, up until the next order of magnitude,
-    // can we use that to our advantage and not have to calculate some of this stuff each call?
-    auto patternFinder(int64_t i, int64_t digits) -> bool
-    {    
-        constexpr int64_t magnitude[18] =
+    constexpr int64_t magnitude[18] =
         {
             1,
             10,
@@ -199,6 +190,16 @@ namespace d02 {
             100000000000000000
         //  9223372036854775807 max int64
         };
+    // I can't be arsed to optimize this.
+    // I just KNOW it can complete the task so much faster, 
+    // I KNOW it checks numbers that unnecessary.
+    // I KNOW there are ways to make it better.
+    // Thoughts:
+    // If we know the magnitude of all numbers in a range, up until the next order of magnitude,
+    // can we use that to our advantage and not have to calculate some of this stuff each call?
+    auto patternFinder(int64_t i, int64_t digits) -> bool
+    {    
+        
 
         // Works for all patterns of repeating sections of digits in a number.
         for(int digitsPerSection = 1; digitsPerSection <= digits; ++digitsPerSection) {
@@ -261,6 +262,60 @@ namespace d02 {
             
             for(int64_t i = start; i <= end; ++i) {
                 int digits = util::numDigits64bit(i);
+                if (!found_numbers.contains(i))
+                    if (patternFinder(i, digits)) 
+                        found_numbers.insert(i);
+            }
+            
+            token = strtok (NULL, ",");
+        }
+
+        for(const auto& number : found_numbers)
+            counter += number;
+
+        return std::to_string(counter);
+    }
+
+    auto part2_op_01() -> std::string {
+        std::unordered_set<int64_t> found_numbers;
+        auto input = util::get_single_line("input\\input_02.txt");
+        char * token;
+	    char * cStrToSplit = strdup(input.c_str());
+	    token = strtok (cStrToSplit,",");
+        int64_t counter = 0;
+        while (token != NULL)
+        {
+            int64_t start = 0;
+            int64_t end = 0;
+            
+            std::string str(token);
+            std::string::iterator it = str.begin();
+
+            // find start of range
+            while (*it != '-') {
+                char c = *it;
+                start = start * 10 + (c - '0');
+                ++it;
+            }
+            ++it; // skip the '-'
+            // find end of range
+            while (it != str.end()) {
+                char c = *it;
+                end = end * 10 + (c - '0');
+                ++it;
+            }
+            
+            int digits = util::numDigits64bit(start);
+            for(int64_t i = start; i <= end; ++i) {
+                // if new magnitude, check digits
+                // lets say start = 99, end = 1001
+                // we want to check digits at 100, 1000
+                // magnitude array is 10^n where n is index
+                // digits is index + 1
+                // so when magnitude[digits] == i, we know we have a new digit count
+                if (magnitude[digits] == i) {
+                    digits += 1;
+                }
                 if (!found_numbers.contains(i))
                     if (patternFinder(i, digits)) 
                         found_numbers.insert(i);
