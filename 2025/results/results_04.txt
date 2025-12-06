@@ -1,0 +1,9 @@
+d04::part1_firsttry()
+Time taken: 1ms
+Time taken: 1686us
+Time taken: 1686000ns
+
+d04::part2_firsttry()
+Time taken: 18ms
+Time taken: 18547us
+Time taken: 18547900ns
