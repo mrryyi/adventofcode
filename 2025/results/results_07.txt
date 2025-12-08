@@ -1,0 +1,6 @@
+d07::p1()
+Time taken: 1ms
+Time taken: 1356us
+Time taken: 1356400ns
+
+d07::p2()

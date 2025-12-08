@@ -5,12 +5,13 @@
 #include "04.h"
 #include "05.h"
 #include "06.h"
+#include "07.h"
 
 int main(int argc, char** args) {
     util::Timer timer;
     std::string answer;
     timer.start();
-    answer = d06::p2();
+    answer = d07::p1();
     timer.stop();
     std::cout << answer << std::endl;
     timer.print_all();
