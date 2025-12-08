@@ -99,7 +99,7 @@ namespace d06 {
             if ((operation != -1) // Not the first 
                 && (
                         empty_column                        // empty column - calculate the numbers that we got.
-                    ||  column_index + 1 >= input[0].size() // End of file - calculate the numbers that we got.
+                    ||  column_index + 1 >= input[0].size() // End of line - calculate the numbers that we got.
                     )
                 ) {
                 switch (operation) {
