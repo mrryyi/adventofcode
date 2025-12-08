@@ -11,7 +11,7 @@ int main(int argc, char** args) {
     util::Timer timer;
     std::string answer;
     timer.start();
-    answer = d07::p1();
+    answer = d07::p2();
     timer.stop();
     std::cout << answer << std::endl;
     timer.print_all();
