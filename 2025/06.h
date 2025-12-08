@@ -7,7 +7,7 @@ namespace d06 {
     constexpr char8_t add= '+'; 
 
     // Goddamn this is so ugly and contains so much unnecessary stuff.
-    // Fixing this in p1_op1
+    // But I refuse to fix it. 
     auto p1() -> std::string {
         
         auto input = util::get_lines("input\\input_06.txt");
