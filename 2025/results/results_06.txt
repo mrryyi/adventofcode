@@ -1,0 +1,9 @@
+d06::p1()
+Time taken: 1ms
+Time taken: 1724us
+Time taken: 1724500ns
+
+d06::p2()
+Time taken: 0ms
+Time taken: 718us
+Time taken: 718500ns
